@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Roton Hill Parcel Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <style>
+    body { margin: 0; padding: 0; }
+    #map { width: 100vw; height: 100vh; }
+.timeline-panel {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px 16px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  min-width: 260px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+.timeline-panel h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #222;
+}
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.slider-container input[type="range"] {
+  flex: 1;
+  cursor: pointer;
+}
+.year-readout {
+  font-weight: 700;
+  font-size: 16px;
+  color: #0b5394;
+  min-width: 48px;
+}
+.step-btn {
+  background: #f0f4f8;
+  border: 1px solid #c5d2dc;
+  color: #1a4e75;
+  font-weight: 700;
+  font-size: 13px;
+  width: 28px;
+  height: 28px;
+  line-height: 26px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.step-btn:hover {
+  background: #0b5394;
+  color: #fff;
+  border-color: #0b5394;
+}
+
+.step-btn:active {
+  transform: scale(0.94);
+}
+  </style>
+  <script src="parcels.js"></script>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script>
+// Initial settings
+let selectedYear = 1940;
+let geojsonLayer = null;
+
+// Determine if a parcel's YearBuilt is strictly greater than the slider's year
+function getParcelStyle(feature) {
+  const props = feature.properties || {};
+  // Handle case-sensitivity or string numbers from ArcGIS exports
+  const rawYear = props.YearBuilt || props.YEARBUILT || props.year_built || props.YEAR_BUILT;
+  const yearBuilt = parseInt(rawYear, 10);
+
+  const isVisible = (isNaN(yearBuilt) || yearBuilt >= selectedYear);
+
+  if (isVisible) {
+    // Not yet built rendering
+    return {
+      fillOpacity: 0.10,
+      opacity: 0.20,
+      weight: 1,
+      fillColor: 'tan',
+      color: 'tan'
+    };
+  }
+
+  // Active / visible parcel appearance
+  return {
+    fillColor: '#2b8c20',
+    fillOpacity: 0.65,
+    color: '#1a4e75',
+    weight: 1.5,
+    opacity: 0.9
+  };
+}
+
+
+  const map = L.map('map').setView([41.085, -73.432], 16);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+// 1. Create the floating Leaflet control with step buttons
+const sliderControl = L.control({ position: 'topright' });
+
+sliderControl.onAdd = function(map) {
+  const container = L.DomUtil.create('div', 'timeline-panel');
+  
+  // Prevent clicks and dragging on the controls from interacting with the map
+  L.DomEvent.disableClickPropagation(container);
+  L.DomEvent.disableScrollPropagation(container);
+
+  container.innerHTML = `
+    <h4>Filter by Year Built</h4>
+    <div class="slider-container">
+      <button id="prevYearBtn" class="step-btn" title="Previous Year">&minus;</button>
+      <input id="timelineSlider" type="range" min="1800" max="2026" step="1" value="${selectedYear}">
+      <button id="nextYearBtn" class="step-btn" title="Next Year">&plus;</button>
+      <span id="yearValue" class="year-readout">${selectedYear}</span>
+    </div>
+    <div style="font-size: 11px; color: #666; margin-top: 6px;">
+      Showing parcels built after <span id="hintYear">${selectedYear}</span>
+    </div>
+  `;
+  return container;
+};
+sliderControl.addTo(map);
+
+// 2. Helper to sync all UI elements and re-style parcels
+function setYear(year) {
+  const min = parseInt(slider.min, 10);
+  const max = parseInt(slider.max, 10);
+  
+  // Clamp between min and max
+  selectedYear = Math.max(min, Math.min(max, parseInt(year, 10)));
+  
+  slider.value = selectedYear;
+  readout.textContent = selectedYear;
+  hint.textContent = selectedYear;
+
+  if (geojsonLayer) {
+    geojsonLayer.setStyle(getParcelStyle);
+  }
+}
+
+// 3. Connect UI elements
+const slider = document.getElementById('timelineSlider');
+const readout = document.getElementById('yearValue');
+const hint = document.getElementById('hintYear');
+const prevBtn = document.getElementById('prevYearBtn');
+const nextBtn = document.getElementById('nextYearBtn');
+
+// Slider drag/input
+slider.addEventListener('input', function(e) {
+  setYear(e.target.value);
+});
+
+// Step back one year
+prevBtn.addEventListener('click', function() {
+  setYear(selectedYear - 1);
+});
+
+// Step forward one year
+nextBtn.addEventListener('click', function() {
+  setYear(selectedYear + 1);
+});
+
+// 2. Render the GeoJSON layer using parcelData
+geojsonLayer = L.geoJSON(parcelData, {
+  style: getParcelStyle,
+  onEachFeature: function(feature, layer) {
+    const props = feature.properties || {};
+    const yr = props.YearBuilt || props.YEARBUILT || 'Unknown';
+    const lotId = props.NAME || props.MAP_BLOCK_LOT || props.PARCEL_ID || 'Parcel';
+    
+    layer.bindPopup(`<strong>${lotId}</strong><br>Year Built: ${yr}`);
+  }
+}).addTo(map);
+
+map.fitBounds(geojsonLayer.getBounds());
+
+</script>
+
+</body>
+</html>
