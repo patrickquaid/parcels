@@ -13,11 +13,21 @@ ID_FIELD = "ParcelID"
 #   - "overrides": optional dict of properties to explicitly set/override
 MERGES = [
     {
+        "new_id": "Westview-5-pre-split",
+        "source_ids": ["5-73B-8-0", "5-73B-40-0"],
+        "overrides": {
+            "YearBuilt": 1916,
+            "valid_from": 1916,
+            "valid_to": 1963,
+            "Notes": "The oldest home on Westview. Replaced in 1994."
+        }
+    },
+    {
         "new_id": "Westview-7-pre-split",
         "source_ids": ["5-73B-29-0", "5-73B-50-0"],
         "overrides": {
             "valid_from": 1947,
-            "valid_to": 1963,
+            "valid_to": 1964,
         }
     },
     {
@@ -28,7 +38,7 @@ MERGES = [
             "valid_from": 1927,
             "valid_to": 1977
         }
-    }
+    },
 ]
 
 def get_feature_id(feature):

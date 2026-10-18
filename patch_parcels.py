@@ -6,9 +6,16 @@ ID_FIELD = "ParcelID"
 
 # Define manual overrides keyed by parcel identifier
 EDITS = {
+    # The city has an incorrect date for #4 Westview
     "5-73B-18-0": {
         "YearBuilt": 1931,
-        "valid_from": 1931
+        "valid_from": 1931,
+    },
+    # Add a "valid_from" date + notes for #5 Westview
+    "5-73B-8-0": {
+        "YearBuilt": 1916,
+        "valid_from": 1963,
+        "Notes": "The oldest home on Westview was here in 1916, and replaced in 1994."
     },
     # These are the parcels that Westview-7-pre-split split into, in 1964
     "5-73B-29-0": {
@@ -39,6 +46,14 @@ EDITS = {
     "5-73B-51-0": {
         "valid_from": 1977,
     },
+    "5-73B-20-0": {
+        "Notes": f"""
+        <ul><li><a href="https://www.rotonhill.com/neighbors/captain-ira-ford">Captain Ira Ford</a> lived here in the 1840s.
+        <li><a href="https://www.rotonhill.com/neighbors/george-platt">George and Mary Platt</a> lived here in the 1860s
+        <li>Alexander and Maria Rummler lived here in the early 1900s.
+        </ul>
+        """
+    }
 }
 
 def main():
