@@ -10,11 +10,34 @@ EDITS = {
         "YearBuilt": 1931,
         "valid_from": 1931
     },
+    # These are the parcels that Westview-7-pre-split split into, in 1964
     "5-73B-29-0": {
         "valid_from": 1964,
     },
     "5-73B-50-0": {
         "valid_from": 1964,
+    },
+    # These are the parcels that Westview-15-pre-split split into, in 1977
+    "5-73B-10-0": {
+        "valid_from": 1977,
+    },
+    "5-73B-47-0": {
+        "valid_from": 1977,
+    },
+    "5-73B-46-0": {
+        "valid_from": 1977,
+    },
+    "5-73B-45-0": {
+        "valid_from": 1977,
+    },
+    "5-73B-44-0": {
+        "valid_from": 1977,
+    },
+    "5-73B-10A-0": {
+        "valid_from": 1977,
+    },
+    "5-73B-51-0": {
+        "valid_from": 1977,
     },
 }
 

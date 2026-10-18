@@ -20,6 +20,15 @@ MERGES = [
             "valid_to": 1963,
         }
     },
+    {
+        "new_id": "Westview-15-pre-split",
+        "source_ids": ["5-73B-10-0", "5-73B-47-0", "5-73B-46-0", "5-73B-45-0",
+                       "5-73B-44-0", "5-73B-10A-0", "5-73B-51-0"],
+        "overrides": {
+            "valid_from": 1927,
+            "valid_to": 1977
+        }
+    }
 ]
 
 def get_feature_id(feature):

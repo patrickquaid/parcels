@@ -5,9 +5,6 @@ import sys
 MAX_EAST_LON = -73.421   # Keep if at least one coordinate is west (<)
 MAX_NORTH_LAT = 41.104   # Keep if at least one coordinate is south (<)
 
-INPUT_FILE = "Parcels_Norwalk_CT.geojson"
-OUTPUT_FILE = "parcels.js"
-
 def extract_coords(coords):
     """Recursively yields [lon, lat] coordinate pairs."""
     if not coords:
@@ -119,45 +116,48 @@ def pick_best_feature(group):
     return group[0]
 
 def main():
-    print(f"Loading {INPUT_FILE}...")
     try:
-        with open(INPUT_FILE, "r", encoding="utf-8") as f:
-            data = json.load(f)
-    except FileNotFoundError:
-        print(f"Error: Could not find '{INPUT_FILE}'.")
+        data = json.load(sys.stdin)
+    except Exception as e:
+        sys.stderr.write(f"Error with input: {e}\n")
         sys.exit(1)
 
     features = data.get("features", [])
     total_count = len(features)
-    print(f"Total source features: {total_count}")
+    sys.stderr.write(f"Total source features: {total_count}\n")
 
-    # 1. Geographic crop
+    # Geographic crop
     in_bounds_features = [f for f in features if parcel_in_bounds(f)]
-    print(f"Features within bounds: {len(in_bounds_features)}")
+    sys.stderr.write(f"Features within bounds: {len(in_bounds_features)}\n")
 
     # Keep only the properties you actually use in the map
     keys_to_keep = {"YearBuilt", "NAME", "ParcelID", "Location"}
     for f in in_bounds_features:
         f["properties"] = {k: v for k, v in f["properties"].items() if k in keys_to_keep}
 
-    # 2. Sequential duplicate collapse (condos/shared footprints)
+    # Sequential duplicate collapse (condos/shared footprints)
     final_features = deduplicate_consecutive(in_bounds_features)
-    print(f"Features after deduplicating shared outlines: {len(final_features)}")
-    print(f"Removed {len(in_bounds_features) - len(final_features)} duplicate condo/sub-unit polygons.")
+
+    # Fill in some properties by default
+    for feat in final_features:
+        props = feat.setdefault("properties", {})
+        year = get_year_built(feat)
+        props["valid_from"] = year if year > 0 else None
+
+    sys.stderr.write(f"Features after deduplicating shared outlines: {len(final_features)}\n")
+    sys.stderr.write(f"Removed {len(in_bounds_features) - len(final_features)} duplicate condo/sub-unit polygons.\n")
 
     # 3. Write output formatted 1 feature per line
-    print(f"Writing output to {OUTPUT_FILE}...")
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        f.write('var parcelData = {\n"type": "FeatureCollection",\n"features": [\n')
-        for i, feature in enumerate(final_features):
-            line = json.dumps(feature, separators=(',', ':'))
-            if i < len(final_features) - 1:
-                f.write(f"  {line},\n")
-            else:
-                f.write(f"  {line}\n")
-        f.write(']\n}\n')
+    sys.stdout.write('{\n"type": "FeatureCollection",\n"features": [\n')
+    for i, feature in enumerate(final_features):
+        line = json.dumps(feature, separators=(',', ':'))
+        if i < len(final_features) - 1:
+            sys.stdout.write(f"  {line},\n")
+        else:
+            sys.stdout.write(f"  {line}\n")
+    sys.stdout.write(']\n}\n')
 
-    print("Finished successfully.")
+    sys.stderr.write("Finished successfully.\n")
 
 if __name__ == "__main__":
     main()
