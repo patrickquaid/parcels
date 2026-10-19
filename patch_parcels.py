@@ -15,7 +15,7 @@ EDITS = {
     "5-73B-8-0": {
         "YearBuilt": 1916,
         "valid_from": 1963,
-        "Notes": "The oldest home on Westview was here in 1916, and replaced in 1994."
+        "Notes": "The oldest home on Westview was here in 1916. It was replaced in 1994."
     },
     # 14 Westview
     "5-73A-13-0": {
@@ -38,6 +38,15 @@ EDITS = {
         "Notes": f"""
         Paul Griswold Howes, the Director-Curator of the Bruce Museum in Greenwich,
         lived here from 1946 until his death in 1984.
+        """
+    },
+    # 23 Westview
+    "5-73A-10-0": {
+        "Notes": f"""
+        Godfrey and Alice Shaw lived here from about 1940 to 1968. Godfrey
+        Shaw built most of the original houses on Westview. The original
+        house at 23 Westview burned down in 1987. The current house is
+        largely new but retains many of the original features.
         """
     },
     # 341 Flax Hill Rd
@@ -79,6 +88,20 @@ EDITS = {
         <a href="https://www.rotonhill.com/the-adams-express-robbery">Adams Express
         Robbery</a>. The first two arrests of the perpetrators took place here.
         """
+    },
+    # 51 Rampart Rd
+    "5-73A-14-0": {
+        "Notes": f"""
+        This was originally built as the Photography Studio of Alice B. Shaw. Shaw had
+        previously been the manager of Manugian's in South Norwalk, and had a long portrait
+        photography career. Alice Shaw's husband was real estate developer Godfrey Shaw. The
+        two of them lived at 23 Westview Ln, and there was a convenient path through the
+        woods for Alice to get to her studio. 
+        """
+    },
+    # 6 Oak Hill Rd
+    "5-73B-42-0": {
+        "valid_from": 1968,
     },
 }
 

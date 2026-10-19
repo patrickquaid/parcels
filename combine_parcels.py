@@ -13,13 +13,19 @@ ID_FIELD = "ParcelID"
 #   - "overrides": optional dict of properties to explicitly set/override
 MERGES = [
     {
+        "new_id": "Westview-3-pre-split",
+        "source_ids": ["5-73B-11-0", "5-73B-42-0"],
+        "overrides": {
+            "valid_to": 1968,
+        }
+    },
+    {
         "new_id": "Westview-5-pre-split",
         "source_ids": ["5-73B-8-0", "5-73B-40-0"],
         "overrides": {
             "YearBuilt": 1916,
             "valid_from": 1916,
             "valid_to": 1963,
-            "Notes": "The oldest home on Westview. Replaced in 1994."
         }
     },
     {
@@ -56,12 +62,6 @@ MERGES = [
         "source_ids": ["5-73A-10-0", "5-73A-60-0", "5-73A-54-0", "5-73A-55-0"],
         "overrides": {
             "valid_to": 1955,
-            "Notes": f"""
-            Godfrey and Alice Shaw lived here from about 1940 to 1968. Godfrey
-            Shaw built most of the original houses on Westview. The original
-            house at 23 Westview burned down in 1987. The current house is
-            largely new but retains many of the original features.
-            """
         },
     },
     {
