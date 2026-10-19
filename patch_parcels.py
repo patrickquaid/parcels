@@ -6,46 +6,64 @@ ID_FIELD = "ParcelID"
 
 # Define manual overrides keyed by parcel identifier
 EDITS = {
-    # The city has an incorrect date for #4 Westview
+    # 4 Westview
     "5-73B-18-0": {
         "YearBuilt": 1931,
         "valid_from": 1931,
     },
-    # Add a "valid_from" date + notes for #5 Westview
+    # 5 Westview
     "5-73B-8-0": {
         "YearBuilt": 1916,
         "valid_from": 1963,
         "Notes": "The oldest home on Westview was here in 1916, and replaced in 1994."
     },
-    # These are the parcels that Westview-7-pre-split split into, in 1964
-    "5-73B-29-0": {
-        "valid_from": 1964,
+    # 14 Westview
+    "5-73A-13-0": {
+        "YearBuilt": 1940,
+        "valid_from": 1940,
+        "Notes": f"""
+        The original house was replaced in 2017. Among the residents here were:<ul>
+        <li><a href="https://www.rotonhill.com/mainframes">Cuthbert Hurd</a>, the
+        Director of Applied Science at IBM.
+        <li>Paleontologist <a href="https://en.wikipedia.org/wiki/Betty_Kellett_Nadeau">
+        Betty Kellett Nadeau</a>.
+        </ul>
+        """
     },
-    "5-73B-50-0": {
-        "valid_from": 1964,
+    # 16 Westview. It shows up as 1950, but I'm confident the Howes were living here at
+    # least in 1946.
+    "5-73A-18-0": {
+        "YearBuilt": 1946,
+        "valid_from": 1946,
+        "Notes": f"""
+        Paul Griswold Howes, the Director-Curator of the Bruce Museum in Greenwich,
+        lived here from 1946 until his death in 1984.
+        """
     },
-    # These are the parcels that Westview-15-pre-split split into, in 1977
-    "5-73B-10-0": {
-        "valid_from": 1977,
+    # 341 Flax Hill Rd
+    "5-73B-22-0": {
+        "YearBuilt": 1760,
+        "valid_from": 1760,
+        "Notes": f"""
+        This was the homestead of Sally Ann Keeler, who inherited much of the land
+        around here when her father David Lockwood died in 1835. The original house
+        burned down in 1912, and was replaced that year by William G Shaw. There's
+        much more detail about all this in 
+        <a href="https://www.rotonhill.com/the-keeler-property">The Keeler Property</a>.
+        """
     },
-    "5-73B-47-0": {
-        "valid_from": 1977,
+    # 343 Flax Hill Rd
+    "5-73B-21-0": {
+        "Notes": f"""
+        The home currently at 3 Rochelle originally faced Flax Hill, and the lot that
+        is now 343 Flax Hill was its circular driveway. When the lot was split in 1979
+        the house was reversed to face Rochelle.<p>
+        From about 1936 until his death in 1954, this was the home of
+        <a href="https://en.wikipedia.org/wiki/C._E._Hooper">Claude Hooper</a>, who
+        measured radio audience sizes, much like Nielsen later did for television.
+        """
     },
-    "5-73B-46-0": {
-        "valid_from": 1977,
-    },
-    "5-73B-45-0": {
-        "valid_from": 1977,
-    },
-    "5-73B-44-0": {
-        "valid_from": 1977,
-    },
-    "5-73B-10A-0": {
-        "valid_from": 1977,
-    },
-    "5-73B-51-0": {
-        "valid_from": 1977,
-    },
+    # 347 Flax Hill Rd
     "5-73B-20-0": {
         "Notes": f"""
         <ul><li><a href="https://www.rotonhill.com/neighbors/captain-ira-ford">Captain Ira Ford</a> lived here in the 1840s.
@@ -53,7 +71,15 @@ EDITS = {
         <li>Alexander and Maria Rummler lived here in the early 1900s.
         </ul>
         """
-    }
+    },
+    # 378 Flax Hill Rd
+    "5-78-5-0": {
+        "Notes": f"""
+        In 1865 this was the home of Josiah Tristram, who played a role in the
+        <a href="https://www.rotonhill.com/the-adams-express-robbery">Adams Express
+        Robbery</a>. The first two arrests of the perpetrators took place here.
+        """
+    },
 }
 
 def main():

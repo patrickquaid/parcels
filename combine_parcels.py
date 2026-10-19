@@ -26,8 +26,21 @@ MERGES = [
         "new_id": "Westview-7-pre-split",
         "source_ids": ["5-73B-29-0", "5-73B-50-0"],
         "overrides": {
-            "valid_from": 1947,
             "valid_to": 1964,
+        }
+    },
+    {
+        "new_id": "Westview-9-pre-split",
+        "source_ids": ["5-73B-9A-0", "5-73B-49-0"],
+        "overrides": {
+            "valid_to": 1979,
+        }
+    },
+    {
+        "new_id": "Westview-12-pre-split",
+        "source_ids": ["5-73B-24-0", "5-73B-26-0"],
+        "overrides": {
+            "valid_to": 1959
         }
     },
     {
@@ -35,8 +48,34 @@ MERGES = [
         "source_ids": ["5-73B-10-0", "5-73B-47-0", "5-73B-46-0", "5-73B-45-0",
                        "5-73B-44-0", "5-73B-10A-0", "5-73B-51-0"],
         "overrides": {
-            "valid_from": 1927,
             "valid_to": 1977
+        }
+    },
+    {
+        "new_id": "Westview-23-pre-split",
+        "source_ids": ["5-73A-10-0", "5-73A-60-0", "5-73A-54-0", "5-73A-55-0"],
+        "overrides": {
+            "valid_to": 1955,
+            "Notes": f"""
+            Godfrey and Alice Shaw lived here from about 1940 to 1968. Godfrey
+            Shaw built most of the original houses on Westview. The original
+            house at 23 Westview burned down in 1987. The current house is
+            largely new but retains many of the original features.
+            """
+        },
+    },
+    {
+        "new_id": "FlaxHill-341-pre-split",
+        "source_ids": ["5-73B-22-0", "5-73B-39-0"],
+        "overrides": {
+            "valid_to": 1959
+        }
+    },
+    {
+        "new_id": "FlaxHill-343-pre-split",
+        "source_ids": ["5-73B-21-0", "5-73B-48-0"],
+        "overrides": {
+            "valid_to": 1979
         }
     },
 ]
@@ -106,8 +145,17 @@ def main():
             "geometry": mapping(merged_geom)
         })
 
-        for sid in source_ids:
-            consumed_ids.add(sid)
+        # We're generally combining parcels because they were at some point split,
+        # so we're dealing with the more recent, split parcels. So if we set a
+        # 'valid_to' year in the overrides above, then we'll generally want to
+        # copy that to 'valid_from' in the source parcels (which come later
+        # historically).
+        if "valid_to" in merged_props:
+            valid_to_val = merged_props["valid_to"]
+            for f in matched:
+                if "properties" not in f or f["properties"] is None:
+                    f["properties"] = {}
+                f["properties"]["valid_from"] = valid_to_val
 
         sys.stderr.write(f"Merged {len(matched)} parcels into '{new_id}'.\n")
 
