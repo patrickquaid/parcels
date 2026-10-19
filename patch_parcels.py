@@ -44,9 +44,10 @@ EDITS = {
     "5-73A-10-0": {
         "Notes": f"""
         Godfrey and Alice Shaw lived here from about 1940 to 1968. Godfrey
-        Shaw built most of the original houses on Westview. The original
-        house at 23 Westview burned down in 1987. The current house is
-        largely new but retains many of the original features.
+        Shaw was a real estate developer, and he built most of the houses on Westview
+        that went up in the 1930s and 1940s. The original house at 23 Westview burned
+        down in 1987. The current house is largely new but retains many of the original
+        features.
         """
     },
     # 341 Flax Hill Rd
