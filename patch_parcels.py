@@ -133,6 +133,52 @@ EDITS = {
     "5-73B-42-0": {
         "valid_from": 1968,
     },
+    # 40 Highland Ave
+    "6-16C-1-0": {
+        "Location": "The Rockledge Mansion at 40 Highland Ave",
+        "Notes": f"""
+        James Augustine
+        Farrell, the then-president of U.S. Steel, first built a mansion on this property
+        in 1913. That mansion immediately burned down, so he built another one by 1916, and
+        that one's still standing (see the whole story at
+        <a href="https://www.historicrowayton.org/the-farrell-estate-rock-ledge">Historic
+        Rowayton</a>).<p>
+        After the Farrells died in the early 1940s, Darien resident James Rand, the
+        Chairman of Remington-Rand, bought the mansion as a headquarters for his company.
+        The first practical commercial computer was developed in the barns across Highland
+        Ave, now the Rowayton Library. Post-war Remington-Rand executives Douglas MacArthur
+        and Leslie R. Groves worked out of this location.
+        """,
+        "valid_from": 1913,
+        "YearBuilt": 1913,
+    },
+    # 297 Highland Ave
+    "5-80-30-0": {
+        "Notes": f"""
+        This home was built by Ira Ford Hoyt (1824-1887), who was a lumber dealer and builder.
+        His mother Hannah Smith Hoyt lived up the street in 354 Highland Ave, and his
+        namesake Captain Ira Ford lived in 347 Flax Hill Rd.<p>
+        Ira's son Dudley (1866-1921) eventually took over the house. He was also a builder,
+        who among other things built the original Norwalk Yacht Club building. Dudley had a
+        daughter named Margaret Rachel Hoyt (1905-2001). Margaret became a qualified architect,
+        the first in Norwalk. She designed a part of the cap of the Chrysler
+        building, the Norwalk Historical Society Museum, and a number of houses in Rowayton.
+        Margaret took over the family home in turn, and raised here children there. In 1959
+        she sold the land to the city so they could build Brien McMahon High School. The
+        house itself was moved across the street to its present location.
+        """
+    },
+    # 354 Highland Ave
+    "5-81-1-0": {
+        "Notes": f"""
+        This was the home Aaron Gregory Hoyt and his wife Hannah Smith Bouton. Aaron died in
+        1836, and Hannah lived here until she died in 1873. Hannah's sister Phebe traveled to
+        Troy, NY to marry Captain Ira Ford, but once Ira retired they moved back to Norwalk, into
+        347 Flax Hill Rd, just up the street. Hannah named her son Ira Ford Hoyt, after the
+        captain. Ira F. Hoyt would later live in 297 Highland, just down the street.<p>
+        Aaron and Hannah are buried in the tiny Hoyt-Bouton Cemetery on Witch Lane.
+        """,
+    },
     # Rowayton Woods. This is the survivor of de-duplication, so we want it to represent
     # the whole development.
     "5-80-200-1/01": {
