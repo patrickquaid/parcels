@@ -124,7 +124,7 @@
       // Active / visible parcel appearance
       return {
         fillColor: 'slateblue',
-        fillOpacity: 0.65,
+        fillOpacity: 0.50,
         color: 'slateblue',
         weight: 1,
         opacity: 1
@@ -167,11 +167,13 @@
         style: getParcelStyle,
         onEachFeature: function (feature, layer) {
         const props = feature.properties || {};
-        const yr = props.YearBuilt || props.YEARBUILT || 'Never';
-        const lotId = props.NAME || props.MAP_BLOCK_LOT || props.PARCEL_ID || props.ParcelID || 'Parcel';
+
+        const yr = props.YearBuilt ? `<br>Year Built: ${props.YearBuilt}` : '';
+        const lotId = props.ParcelID ? `<br>Parcel ${props.ParcelID}` : '';
         const location = formatAddress(props.Location);
-        
-        layer.bindPopup(`<strong>${location}</strong><br>Year Built: ${yr}<br>Parcel ${lotId}${props.Notes ? `<br><br>${props.Notes}` : ''}`);
+        const notes = props.Notes ? `<br><br>${props.Notes}` : '';
+
+        layer.bindPopup(`<strong>${location}</strong>${yr}${lotId}${notes}`);
       }
       }).addTo(map);
     }

@@ -2,6 +2,7 @@ import json
 import sys
 from shapely import wkt
 from shapely.geometry import shape
+from shapely.validation import explain_validity
 
 # Bounds of the area of interest (essentially Roton Hill). Created in
 # MyMaps, exporting a region by CSV.
@@ -19,9 +20,11 @@ REGION_WKT = """POLYGON ((
 -73.4463808 41.0636156, -73.4467241 41.0614638, -73.4463951 41.057915, -73.4417889 41.0550349,
 -73.4387562 41.0542906, -73.4331486 41.0541827, -73.4320185 41.0552614, -73.4311745 41.0598243,
 -73.4315464 41.06402, -73.4316323 41.0699897, -73.4305021 41.0709279, -73.429043 41.0720657,
--73.4281847 41.0726372, -73.4276125 41.073597, -73.4284708 41.0750906, -73.4303663 41.0769616,
--73.4307918 41.0789485, -73.4314391 41.0798677, -73.4320686 41.0808975, -73.4311244 41.0831134,
--73.4302947 41.0860165, -73.4298477 41.0865179, -73.429533 41.0875206, -73.4301195 41.087836,
+-73.4294225 41.0722999, -73.4292603 41.0730396, -73.4288892 41.074054, -73.4286853 41.0749814,
+-73.4293785 41.0754486, -73.4301628 41.0759523, -73.4303135 41.0762087, -73.4304347 41.0769485,
+-73.4310332 41.0792619, -73.4314793 41.079989, -73.4337146 41.078843, -73.4337646 41.0794942,
+-73.4336323 41.0800887, -73.4312908 41.081872, -73.4311459 41.0829031, -73.4302947 41.0860165,
+-73.4298477 41.0865179, -73.429533 41.0875206, -73.4299067 41.087648, -73.4301195 41.087836,
 -73.4299979 41.0886122, -73.4300229 41.0901109, -73.4298584 41.0908871, -73.4300372 41.0914235,
 -73.4307453 41.0929706, -73.4313247 41.0947899, -73.4318397 41.0947036, -73.4325263 41.0956307,
 -73.4326408 41.096725, -73.4334991 41.0967465, -73.4342859 41.0980617, -73.4343574 41.0986977,
@@ -59,6 +62,10 @@ def get_year_built(feature):
         return yr if yr > 0 else 0
     except (ValueError, TypeError):
         return 0
+
+def has_parcel_id(feature):
+    props = feature.get("properties") or {}
+    return bool(props.get("ParcelID"))
 
 def geometry_key(feature):
     """
@@ -131,10 +138,14 @@ def main():
     total_count = len(features)
     sys.stderr.write(f"Total source features: {total_count}\n")
 
+    # Filter out features without a valid ParcelID
+    features = [f for f in features if has_parcel_id(f)]
+    sys.stderr.write(f"Features with valid ParcelID: {len(features)}\n")
+
     # Geographic crop
     in_bounds_features = [f for f in features if parcel_in_bounds(f, region)]
     sys.stderr.write(f"Features within bounds: {len(in_bounds_features)}\n")
-
+    
     # Keep only the properties you actually use in the map
     keys_to_keep = {"YearBuilt", "NAME", "ParcelID", "Location"}
     for f in in_bounds_features:
@@ -152,7 +163,7 @@ def main():
     sys.stderr.write(f"Features after deduplicating shared outlines: {len(final_features)}\n")
     sys.stderr.write(f"Removed {len(in_bounds_features) - len(final_features)} duplicate condo/sub-unit polygons.\n")
 
-    # 3. Write output formatted 1 feature per line
+    # Write output formatted 1 feature per line
     sys.stdout.write('{\n"type": "FeatureCollection",\n"features": [\n')
     for i, feature in enumerate(final_features):
         line = json.dumps(feature, separators=(',', ':'))

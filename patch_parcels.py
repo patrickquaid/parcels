@@ -40,6 +40,13 @@ EDITS = {
         lived here from 1946 until his death in 1984.
         """
     },
+    # 17 Westview. It was rebuilt, so we want to note the earlier house.
+    "5-73B-46-0": {
+        "YearBuilt": 1979,
+        "Notes": f"""
+        This house was apparently rebuilt in 2006.
+        """
+    },
     # 23 Westview
     "5-73A-10-0": {
         "Notes": f"""
@@ -48,6 +55,17 @@ EDITS = {
         that went up in the 1930s and 1940s. The original house at 23 Westview burned
         down in 1987. The current house is largely new but retains many of the original
         features.
+        """
+    },
+    # 319 Flax Hill Rd
+    "5-76B-5-0": {
+        "YearBuilt": 1770,
+        "valid_from": 1770,
+        "Notes": f"""
+        The historic home on this lot was demolished in 2017. See
+        <a href="https://www.thehour.com/news/article/Historic-1770s-era-home-on-Flax-Hill-Road-torn-10934471.php">
+        this article in the The Norwalk Hour</a> for the story, along with excellent photos of the
+        original house.
         """
     },
     # 341 Flax Hill Rd
@@ -104,6 +122,11 @@ EDITS = {
     "5-73B-42-0": {
         "valid_from": 1968,
     },
+    # Rowayton Woods. This is the survivor of de-duplication, so we want it to represent
+    # the whole development.
+    "5-80-200-1/01": {
+        "Location": "Rowayton Woods Dr",
+    }
 }
 
 def main():
