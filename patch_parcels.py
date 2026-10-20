@@ -30,6 +30,17 @@ EDITS = {
         </ul>
         """
     },
+    # 15 Westview
+    "5-73B-10-0": {
+        "Notes": f"""
+        This was the first home built by Godfrey Shaw on Westview Ln. Shaw would go on
+        to build most of the other houses on the lane over the following decade. In about
+        1975 the large original lot was subdivided into seven smaller parcels.<p>
+        Among the residents of this house were Marcell and Jane Rand. Marcell was the
+        son of the Chairman of Remington-Rand (later Sperry-Rand), and was the Vice
+        President of International Operations.
+        """
+    },
     # 16 Westview. It shows up as 1950, but I'm confident the Howes were living here at
     # least in 1946.
     "5-73A-18-0": {
