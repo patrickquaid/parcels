@@ -126,7 +126,17 @@ EDITS = {
     # the whole development.
     "5-80-200-1/01": {
         "Location": "Rowayton Woods Dr",
-    }
+    },
+    "5-79-3-0": {
+        "Location": "Brookside Cemetery",
+        "valid_from": 1724,
+        "YearBuilt": 1724,
+    },
+    "5-79-1-0": {
+        "Location": "Union Cemetery",
+        "valid_from": 1849,
+        "YearBuilt": 1849,
+    },
 }
 
 def main():

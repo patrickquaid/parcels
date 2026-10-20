@@ -85,6 +85,35 @@ MERGES = [
             "valid_to": 1979
         }
     },
+    {
+        "new_id": "TraendlyGreenhouses",
+        "source_ids": ["5-79-59-0", "5-79-60-0", "5-79-61-0", "5-79-62-0", "5-79-63-0", "5-79-64-0",
+                       "5-79-65-0", "5-79-66-0", "5-79-75-0", "5-79-76-0", "5-79-77-0", "5-79-78-0",
+                       "5-79-79-0", "5-79-80-0", "5-79-81-0", "5-79-82-0", "5-79-83-0", "5-79-84-0",
+                       "5-79-85-0", "5-79-86-0", "5-79-57-0", "5-79-56-0", "5-79-55-0", "5-79-54-0",
+                       "5-79-52-0", "5-79-51-0", "5-79-50-0", "5-79-49-0", "5-79-48-0", "5-79-47-0",
+                       "5-79-46-0", "5-79-45-0", "5-79-44-0", "5-79-43-0", "5-79-42-0", "5-79-41-0",
+                       "5-79-40-0", "5-79-39-0", "5-79-38-0", "5-79-37-0", "5-79-36-0", "5-79-35-0",
+                       "5-79-34-0", "5-79-33-0", "5-79-32-0", "5-79-31-0", "5-79-30-0", "5-79-29-0",
+                       "5-79-28-0", "5-79-27-0", "5-79-26-0", "5-79-25-0", "5-79-24-0", "5-79-23-0",
+                       "5-79-22-0", "5-79-21-0", "5-79-20-0", "5-79-19-0", "5-79-18-0", "5-79-17-0",
+                       "5-79-16-0", "5-79-7-0",  "5-79-6-0"],
+        "overrides": {
+            "YearBuilt": 1912,
+            "valid_from": 1912,
+            "valid_to": 1960,
+            "Location": "Traendly Farms",
+            "Notes": f"""
+            Traendly was the largest supplier of flowers to New York City, all grown in 50
+            greenhouses on either side of Five Mile River in Norwalk and Darien. Traendly
+            operated from about 1912 or so until the late 1950s. When they shut down the
+            greenhouses they tried to sell this land to Sperry-Rand for a manufacturing
+            facility, but their bruising 3-year attempt to re-zone the area was ultimately
+            denied due to fierce opposition from the local community.<p>
+            To be clear, these roads were not here when the greenhouses were operating.
+            """
+        }
+    },
 ]
 
 def get_feature_id(feature):
