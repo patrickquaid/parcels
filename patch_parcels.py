@@ -10,6 +10,13 @@ EDITS = {
     "5-73B-18-0": {
         "YearBuilt": 1931,
         "valid_from": 1931,
+        "Notes": f"""
+        In the late 1940s, <a href="https://www.rotonhill.com/mainframes">Philip Scribner
+        Rand</a> (1906-1995) lived here with his family. Rand was the much-younger brother
+        of James Rand, the Chairman of Remington-Rand. Philip also worked at the company,
+        as an engineer. He was interested in radio interference and Ham radio, and while he
+        lived here there was a tall antenna in the side yard.
+        """
     },
     # 5 Westview
     "5-73B-8-0": {
@@ -105,10 +112,15 @@ EDITS = {
     # 347 Flax Hill Rd
     "5-73B-20-0": {
         "Notes": f"""
-        <ul><li><a href="https://www.rotonhill.com/neighbors/captain-ira-ford">Captain Ira Ford</a> lived here in the 1840s.
-        <li><a href="https://www.rotonhill.com/neighbors/george-platt">George and Mary Platt</a> lived here in the 1860s
-        <li>Alexander and Maria Rummler lived here in the early 1900s.
-        </ul>
+        <a href="https://www.rotonhill.com/neighbors/captain-ira-ford">Captain Ira Ford</a>
+        lived here from the 1840s until his death in 1858. His wife was the former Phebe
+        Bouton, whose sister Hannah lived nearby at 354 Highland Ave.<p>
+        This house has a Norwalk Historical Society plaque that notes that
+        <a href="https://www.rotonhill.com/neighbors/george-platt">George and Mary Platt</a>
+        lived here in the 1860s.<p>
+        Alexander and Maria Rummler lived here in the early 1900s. Alexander was an artist
+        and sat on the Board of Education. Maria was the first woman elected to the Norwalk
+        City Council.
         """
     },
     # 378 Flax Hill Rd
@@ -117,6 +129,12 @@ EDITS = {
         In 1865 this was the home of Josiah Tristram, who played a role in the
         <a href="https://www.rotonhill.com/the-adams-express-robbery">Adams Express
         Robbery</a>. The first two arrests of the perpetrators took place here.
+        """
+    },
+    "5-73B-6-0": {
+        "Notes": f"""
+        21-year-old Augusta Getner moved into this house when she married John Zilske in 1909.
+        John died in 1949, but Augusta celebrated her 100th birthday at this house in 1988.
         """
     },
     # 51 Rampart Rd
