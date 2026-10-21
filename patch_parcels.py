@@ -14,38 +14,44 @@ EDITS = {
         In the late 1940s, <a href="https://www.rotonhill.com/mainframes">Philip Scribner
         Rand</a> (1906-1995) lived here with his family. Rand was the much-younger brother
         of James Rand, the Chairman of Remington-Rand. Philip also worked at the company,
-        as an engineer. He was interested in radio interference and Ham radio, and while he
-        lived here there was a tall antenna in the side yard.
+        as an engineer. He was interested in radio interference and Ham radio (W1DBM), and
+        while he lived here there was a tall antenna in the side yard.
         """
     },
     # 5 Westview
     "5-73B-8-0": {
         "YearBuilt": 1916,
         "valid_from": 1963,
-        "Notes": "The oldest home on Westview was here in 1916. It was replaced in 1994."
+        "Notes": f"""
+        The oldest home on Westview was built here in about 1916 by Edward Lagerin, a house
+        painter whose parents lived on Flax Hill Rd. The house was eventually replaced in 1994.
+        """
     },
     # 14 Westview
     "5-73A-13-0": {
         "YearBuilt": 1940,
         "valid_from": 1940,
         "Notes": f"""
-        The original house was replaced in 2017. Among the residents here were:<ul>
-        <li><a href="https://www.rotonhill.com/mainframes">Cuthbert Hurd</a>, the
-        Director of Applied Science at IBM.
-        <li>Paleontologist <a href="https://en.wikipedia.org/wiki/Betty_Kellett_Nadeau">
-        Betty Kellett Nadeau</a>.
-        </ul>
+        Among the residents here were <a href="https://www.rotonhill.com/mainframes">
+        Cuthbert Hurd</a>, the Director of Applied Science at IBM, and Paleontologist
+        <a href="https://en.wikipedia.org/wiki/Betty_Kellett_Nadeau">Betty Kellett Nadeau</a>.
+        <p>The original house was replaced in 2017.
         """
     },
     # 15 Westview
     "5-73B-10-0": {
         "Notes": f"""
-        This was the first home built by Godfrey Shaw on Westview Ln. Shaw would go on
+        This was the first home built by Godfrey Shaw on Westview Lane. Shaw would go on
         to build most of the other houses on the lane over the following decade. In about
         1975 the large original lot was subdivided into seven smaller parcels.<p>
-        Among the residents of this house were Marcell and Jane Rand. Marcell was the
-        son of the Chairman of Remington-Rand (later Sperry-Rand), and was the Vice
-        President of International Operations.
+        The Shaws apparently lived in the house initially, and then in 1931 sold the
+        place to Helen and Howard Rankin Wilkes (1905-1996). Howard Wilkes was a stock
+        broker, and led the effort to save the <a href="https://maps.app.goo.gl/3ktaWXxHrCt7AjqNA">
+        old Brookside School on Flax Hill Road</a>. When that failed, he led the parent's
+        association in advocating for the construction of the current school on Highland Ave.<p>
+        In 1946 this house was purchased by Marcell and Jane Rand. Marcell was the
+        son of James Rand, the Chairman of Remington-Rand (later Sperry-Rand), and was the
+        Vice President of International Operations.
         """
     },
     # 16 Westview. It shows up as 1950, but I'm confident the Howes were living here at
@@ -105,8 +111,10 @@ EDITS = {
         is now 343 Flax Hill was its circular driveway. When the lot was split in 1979
         the house was reversed to face Rochelle.<p>
         From about 1936 until his death in 1954, this was the home of
-        <a href="https://en.wikipedia.org/wiki/C._E._Hooper">Claude Hooper</a>, who
-        measured radio audience sizes, much like Nielsen later did for television.
+        <a href="https://en.wikipedia.org/wiki/C._E._Hooper">Claude E. Hooper</a>, who
+        measured radio audience sizes, much like Nielsen later did for television. In
+        the late 1940s radio people would ask each other "How's your Hooper?" to see
+        how popular their shows were.
         """
     },
     # 347 Flax Hill Rd
@@ -128,7 +136,8 @@ EDITS = {
         "Notes": f"""
         In 1865 this was the home of Josiah Tristram, who played a role in the
         <a href="https://www.rotonhill.com/the-adams-express-robbery">Adams Express
-        Robbery</a>. The first two arrests of the perpetrators took place here.
+        Train Robbery</a>. The first arrests took place here, under the watchful eye
+        of famous detective Alan Pinkerton.
         """
     },
     "5-73B-6-0": {
@@ -143,7 +152,7 @@ EDITS = {
         This was originally built as the Photography Studio of Alice B. Shaw. Shaw had
         previously been the manager of Manugian's in South Norwalk, and had a long portrait
         photography career. Alice Shaw's husband was real estate developer Godfrey Shaw. The
-        two of them lived at 23 Westview Ln, and there was a convenient path through the
+        two of them lived at 23 Westview Lane, and there was a convenient path through the
         woods for Alice to get to her studio. 
         """
     },
@@ -155,17 +164,16 @@ EDITS = {
     "6-16C-1-0": {
         "Location": "The Rockledge Mansion at 40 Highland Ave",
         "Notes": f"""
-        James Augustine
-        Farrell, the then-president of U.S. Steel, first built a mansion on this property
-        in 1913. That mansion immediately burned down, so he built another one by 1916, and
-        that one's still standing (see the whole story at
+        James Augustine Farrell, the President of U.S. Steel, first built a mansion on this
+        property in 1913. That mansion immediately burned down, so in 1916 he built a second
+        one, and that one's still standing (see the whole story at
         <a href="https://www.historicrowayton.org/the-farrell-estate-rock-ledge">Historic
         Rowayton</a>).<p>
         After the Farrells died in the early 1940s, Darien resident James Rand, the
         Chairman of Remington-Rand, bought the mansion as a headquarters for his company.
-        The first practical commercial computer was developed in the barns across Highland
-        Ave, now the Rowayton Library. Post-war Remington-Rand executives Douglas MacArthur
-        and Leslie R. Groves worked out of this location.
+        The first practical commercial computer, the UNIVAC I, was developed in the barns
+        across Highland Ave, now the Rowayton Library. Post-war Remington-Rand executives
+        Douglas MacArthur and Leslie R. Groves worked out of this location.
         """,
         "valid_from": 1913,
         "YearBuilt": 1913,
@@ -191,23 +199,22 @@ EDITS = {
         named after Dudley Pettibone Ely, the first mayor of South Norwalk.<p>
         Dudley had a
         daughter named Margaret Rachel Hoyt (1905-2001), later known as Margaret Hoyt Smith.
-        Margaret became a qualified architect,
-        the first in Norwalk. She designed a part of the cap of the Chrysler
-        building, the Norwalk Historical Society Museum, and a number of houses in Rowayton.
-        Margaret took over the family home in turn, and raised her children there. In 1959
-        she sold the land to the city so it could build Brien McMahon High School. The
-        100-year-old house was moved across the street to its present location.
+        Margaret became the first female architect in Norwalk. She designed a part of
+        the cap of the Chrysler building, the Norwalk Historical Society Museum, and a number of
+        houses in Rowayton. Margaret took over the family home from her parents and raised her
+        children there. In 1959 she sold the land to the city so it could build Brien McMahon
+        High School. The 100-year-old house was moved across the street to its present location.
         """
     },
     # 354 Highland Ave
     "5-81-1-0": {
         "Notes": f"""
         This was the home Aaron Gregory Hoyt and his wife Hannah Smith Bouton. Aaron died in
-        1836, and Hannah lived here until she died in 1873. Their son Ira Ford Hoyt, who
+        1836, and Hannah lived here until her death in 1873. Their son Ira Ford Hoyt, who
         would eventually live down the street at 297 Highland Ave, was named after their
         brother-in-law Captain Ira Ford. Hannah's sister Phebe went to Troy to marry the
-        Captain, but when he retired they moved back to Norwalk in 347 Flax Hill Rd, just
-        up the street.<p>
+        steamboat Captain, but when he retired they moved back to Norwalk in 347 Flax Hill
+        Rd, just up the street.<p>
         Aaron and Hannah are buried in the tiny Hoyt-Bouton Cemetery on Witch Lane.
         """,
     },
