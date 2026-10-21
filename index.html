@@ -108,27 +108,47 @@
       const rawYear = props.YearBuilt || props.YEARBUILT || props.year_built || props.YEAR_BUILT;
       const yearBuilt = parseInt(rawYear, 10);
 
-      const isVisible = (!isNaN(yearBuilt) && selectedYear >= yearBuilt);
+      const isBuilt = (!isNaN(yearBuilt) && selectedYear >= yearBuilt);
 
-      if (!isVisible) {
-        // Not yet built rendering
-        return {
-          fillOpacity: 0.20,
-          opacity: 0.20,
-          weight: 1,
-          fillColor: 'tan',
-          color: 'tan'
-        };
+      if (isBuilt) {
+        if (props.Notes) {
+          return {
+            fillOpacity: 0.50,
+            fillColor: 'slateblue',
+            opacity: 1,
+            color: 'blue',
+            weight: 1.5,
+          };
+        } else {
+          return {
+            fillOpacity: 0.50,
+            fillColor: 'slateblue',
+            opacity: 1,
+            color: 'slateblue',
+            weight: 1,
+          };
+        }
+      } else {
+        // Not yet built
+        if (props.Notes) {
+          // Highlight plots with Notes
+          return {
+            fillOpacity: 0.20,
+            fillColor: 'tan',
+            opacity: 1,
+            color: 'brown',
+            weight: 1.5
+          };
+        } else {
+          return {
+            fillOpacity: 0.20,
+            fillColor: 'tan',
+            opacity: 0.20,
+            color: 'tan',
+            weight: 1
+          };
+        }
       }
-
-      // Active / visible parcel appearance
-      return {
-        fillColor: 'slateblue',
-        fillOpacity: 0.50,
-        color: 'slateblue',
-        weight: 1,
-        opacity: 1
-      };
     }
 
     function formatAddress(str) {
