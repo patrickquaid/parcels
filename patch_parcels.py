@@ -170,30 +170,44 @@ EDITS = {
         "valid_from": 1913,
         "YearBuilt": 1913,
     },
+    # 284 Highland Ave
+    "5-81-157-0": {
+        "Notes": f"""
+        This home has a historical plaque identifying it as the "William H Lockwood House
+        c. 1870". In 1878, Lockwood was living here with his parents-in-law Dilazon and
+        Hannah Allen. They were the first people alerted when their neighbor
+        <a href="https://www.rotonhill.com/the-case-of-the-miserly-millionaire">Johan
+        Heinrich Schulte was brutally murdered.</a>.
+        """
+    },
     # 297 Highland Ave
     "5-80-30-0": {
         "Notes": f"""
         This home was built by Ira Ford Hoyt (1824-1887), who was a lumber dealer and builder.
         His mother Hannah Smith Hoyt lived up the street in 354 Highland Ave, and his
         namesake Captain Ira Ford lived in 347 Flax Hill Rd.<p>
-        Ira's son Dudley (1866-1921) eventually took over the house. He was also a builder,
-        who among other things built the original Norwalk Yacht Club building. Dudley had a
-        daughter named Margaret Rachel Hoyt (1905-2001). Margaret became a qualified architect,
+        Ira's son Dudley Ely Hoyt (1866-1921) eventually took over the house. He was also a builder,
+        who among other things built the original Norwalk Yacht Club building. Dudley must have
+        named after Dudley Pettibone Ely, the first mayor of South Norwalk.<p>
+        Dudley had a
+        daughter named Margaret Rachel Hoyt (1905-2001), later known as Margaret Hoyt Smith.
+        Margaret became a qualified architect,
         the first in Norwalk. She designed a part of the cap of the Chrysler
         building, the Norwalk Historical Society Museum, and a number of houses in Rowayton.
-        Margaret took over the family home in turn, and raised here children there. In 1959
-        she sold the land to the city so they could build Brien McMahon High School. The
-        house itself was moved across the street to its present location.
+        Margaret took over the family home in turn, and raised her children there. In 1959
+        she sold the land to the city so it could build Brien McMahon High School. The
+        100-year-old house was moved across the street to its present location.
         """
     },
     # 354 Highland Ave
     "5-81-1-0": {
         "Notes": f"""
         This was the home Aaron Gregory Hoyt and his wife Hannah Smith Bouton. Aaron died in
-        1836, and Hannah lived here until she died in 1873. Hannah's sister Phebe traveled to
-        Troy, NY to marry Captain Ira Ford, but once Ira retired they moved back to Norwalk, into
-        347 Flax Hill Rd, just up the street. Hannah named her son Ira Ford Hoyt, after the
-        captain. Ira F. Hoyt would later live in 297 Highland, just down the street.<p>
+        1836, and Hannah lived here until she died in 1873. Their son Ira Ford Hoyt, who
+        would eventually live down the street at 297 Highland Ave, was named after their
+        brother-in-law Captain Ira Ford. Hannah's sister Phebe went to Troy to marry the
+        Captain, but when he retired they moved back to Norwalk in 347 Flax Hill Rd, just
+        up the street.<p>
         Aaron and Hannah are buried in the tiny Hoyt-Bouton Cemetery on Witch Lane.
         """,
     },
