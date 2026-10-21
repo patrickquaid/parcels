@@ -23,8 +23,12 @@ EDITS = {
         "YearBuilt": 1916,
         "valid_from": 1963,
         "Notes": f"""
-        The oldest home on Westview was built here in about 1916 by Edward Lagerin, a house
-        painter whose parents lived on Flax Hill Rd. The house was eventually replaced in 1994.
+        The oldest home on Westview was built here in about 1916 by Edward & Sarah Lagerin.
+        Edward was a house painter and paperhanger whose parents lived nearby on Flax Hill
+        Road. When the Lagerins died in the mid-1950s the house was first taken over by their
+        daughter Catherine, and then later by their son Nelson. Nelson Lagerin was a radio
+        technician with the Norwalk Traffic and Parking Department. After Nelson died the
+        house was rebuilt in 1994.
         """
     },
     # 14 Westview
@@ -140,10 +144,21 @@ EDITS = {
         of famous detective Alan Pinkerton.
         """
     },
+    # 387 Flax Hill Rd
     "5-73B-6-0": {
         "Notes": f"""
         21-year-old Augusta Getner moved into this house when she married John Zilske in 1909.
         John died in 1949, but Augusta celebrated her 100th birthday at this house in 1988.
+        """
+    },
+    # 388 Flax Hill Rd
+    "5-78-3-0": {
+        "Notes": f"""
+        This house has a Norwalk Historical Society plaque that reads "Lewis Raymond Sr House c. 1810".
+        This house is wood framed, but Lewis Raymond Jr was a brickmason, so his nearby house at
+        26 Keeler is made of brick.<p>
+        In the 1930s this was the home of Douglas Pairman Hall, a well-known architect specializing
+        in theaters, and his wife Aimee Green Hall.
         """
     },
     # 51 Rampart Rd
