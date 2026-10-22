@@ -138,17 +138,31 @@ EDITS = {
     # 378 Flax Hill Rd
     "5-78-5-0": {
         "Notes": f"""
-        In 1865 this was the home of Josiah Tristram, who played a role in the
+        In 1865 this was the home of Josiah Tristram (1827-1886), who played a role in the
         <a href="https://www.rotonhill.com/the-adams-express-robbery">Adams Express
-        Train Robbery</a>. The first arrests took place here, under the watchful eye
-        of famous detective Alan Pinkerton.
+        Train Robbery</a>. The first arrests took place here under the watchful eye
+        of famous detective Alan Pinkerton.<p>
+        Josiah's son William Henry Tristram (1865-1931) was the popular postman on the
+        Rowayton rural route. He lived here until the early 1920s.
+        """
+    },
+    "5-78-4-0": {
+        "Notes": f"""
+        In the 1930s and 1940s, this was the home of Calvin Ira Crocker (1875-1951). Crocker
+        was the Chief Engineer for the New York ferries. He was also the Chief Engineer for
+        the construction of the Queenboro Bridge, and in 1927 was described as the Chief
+        Engineer for the Brooklyn and Manhattan Bridges.<p>
+        Crocker's wife was the former Mary Lavinia Broadhurst (1885-1968), and this was her
+        house. She had inherited the house from her parents in the 1920s, and in fact she
+        lived there for many years after Calvin died.
         """
     },
     # 387 Flax Hill Rd
     "5-73B-6-0": {
         "Notes": f"""
         21-year-old Augusta Getner moved into this house when she married John Zilske in 1909.
-        John died in 1949, but Augusta celebrated her 100th birthday at this house in 1988.
+        John was a florist at the Traendly greenhouses. He died in 1949, but Augusta celebrated
+        her 100th birthday at this same house in 1988.
         """
     },
     # 388 Flax Hill Rd
@@ -159,6 +173,17 @@ EDITS = {
         26 Keeler is made of brick.<p>
         In the 1930s this was the home of Douglas Pairman Hall, a well-known architect specializing
         in theaters, and his wife Aimee Green Hall.
+        """
+    },
+    # 398 Flax Hill Rd
+    "5-78-2-0": {
+        "Notes": f"""
+        Alexander Getner (1873-1954) was a florist at the Traendly greenhouses. He and his wife
+        Magdelena lived here or hereabouts from the early 1900s until Magdelena died in 1962.
+        A map from 1923 shows that "Aleck & Megy" Getner owned much of the adjoining land that
+        is now Primrose Court and Iris Court.<p>
+        Alexander's sister Augusta was married to John Zilske. The Zilskes lived across Flax Hill,
+        and John was also a gardener at Traendly's.
         """
     },
     # 51 Rampart Rd
