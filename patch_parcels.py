@@ -271,11 +271,13 @@ EDITS = {
         Aaron and Hannah are buried in the tiny Hoyt-Bouton Cemetery on Witch Lane.
         """,
     },
+    # 26 Keeler Ave
     "5-73B-1A-0": {
         "Notes": f"""
         A Norwalk Historical Society plaque on this house says "Lewis Raymond Jr. House 1829".
-        Lewis Raymond Jr. was a brickmason, and this is accordingly a brick house. Lewis'
-        father lived nearby at 388 Flax Hill Rd, according to the plaque on that house.
+        Lewis Raymond Jr. was a brickmason, and this is accordingly a brick house. In fact,
+        it is generally regarded as the first brick house built in Norwalk. Lewis Raymond Sr
+        lived nearby at 388 Flax Hill Rd, according to the plaque on that house.
         """
     },
     # Rowayton Woods. This is the survivor of de-duplication, so we want it to represent

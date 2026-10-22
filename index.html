@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Roton Hill Parcel Map</title>
+  <title>A Timeline for Roton Hill</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <style>
@@ -79,9 +79,92 @@
     .step-btn:active {
       transform: scale(0.94);
     }
+
+    /* Help Button in Top-Left (or inside your control panel) */
+    .help-btn {
+      background: #ffffff;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a4e75;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+      transition: all 0.15s ease;
+    }
+    .help-btn:hover {
+      background: #f0f4f8;
+      color: #0b5394;
+    }
+
+    /* Modal Overlay Backdrop */
+    .modal-overlay {
+      display: none; /* hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 2000; /* above all Leaflet layers */
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    /* Modal Dialog Box */
+    .modal-card {
+      background: #ffffff;
+      border-radius: 8px;
+      max-width: 480px;
+      width: 100%;
+      padding: 24px;
+      box-sizing: border-box;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #333;
+    }
+    .modal-card h3 {
+      margin: 0 0 12px 0;
+      font-size: 18px;
+      color: #1a4e75;
+    }
+    .modal-card p {
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0 0 12px 0;
+    }
+    .modal-card ul {
+      font-size: 13px;
+      line-height: 1.5;
+      margin: 0 0 16px 0;
+      padding-left: 20px;
+    }
+    .modal-close-btn {
+      background: #1a4e75;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      float: right;
+    }
+    .modal-close-btn:hover {
+      background: #0b5394;
+    }
+
     /* =========================================================
-   Mobile Overrides (screens 600px wide or narrower)
-   ========================================================= */
+       Mobile Overrides (screens 600px wide or narrower)
+       ========================================================= */
 @media (max-width: 600px) {
   /* Pin the panel across the bottom edge of the screen */
   .leaflet-top.leaflet-right {
@@ -190,9 +273,37 @@
 </head>
 
 <body>
-
   <div id="map"></div>
-
+  <!-- Help Modal -->
+  <div id="helpModal" class="modal-overlay">
+    <div class="modal-card">
+      <h3>About This Map</h3>
+      <p>
+        This interactive map shows the development of Roton Hill, an arbitrary
+        area in South Norwalk. It's based on public parcel maps, with some edits
+        and historical notes added.
+      </p><p>
+        The map is based on current data, so if a building's been replaced, it
+        generally only knows about the new one. Also the underlying map, including the
+        building outlines, is just the current map -- the slider has no affect on
+        it.
+      </p><p>
+        If you see anything that ought to be changed, including especially any
+        trivia or fun facts I should add, please let me know at rotonhill@rotonhill.com.
+      </p>
+      </p>
+      <ul>
+        <li><strong>Timeline Slider:</strong> Drag the year slider or use <strong>&minus;</strong> /
+          <strong>&plus;</strong> to step through time.</li>
+        <li><strong>Parcels:</strong> Lots only appear once built or established, and split as
+          historical subdivisions (or at least those that I know about) occur.</li>
+        <li><strong>Details:</strong> Click on any parcel to see a little more information.
+          If a parcel has a thicker outline, there is some historical trivia available.
+          </li>
+      </ul>
+      <button id="closeHelpBtn" class="modal-close-btn">Got it</button>
+    </div>
+  </div>
   <script>
     // Initial settings
     let selectedYear = 1932;
@@ -315,6 +426,55 @@
       }).addTo(map);
     }
 
+    function setUpTheHelpButton() {
+      // 1. Create a custom Leaflet control for the "?" button (top-left, next to zoom)
+      const helpControl = L.control({ position: 'topleft' });
+
+      helpControl.onAdd = function (map) {
+        const btn = L.DomUtil.create('button', 'help-btn');
+        btn.innerHTML = '?';
+        btn.title = 'About this map';
+
+        // Prevent clicks from zooming/panning the map
+        L.DomEvent.disableClickPropagation(btn);
+        L.DomEvent.disableScrollPropagation(btn);
+
+        btn.addEventListener('click', openHelp);
+        return btn;
+      };
+      helpControl.addTo(map);
+
+      // 2. Open / Close functions
+      const helpModal = document.getElementById('helpModal');
+      const closeBtn = document.getElementById('closeHelpBtn');
+
+      function openHelp() {
+        helpModal.style.display = 'flex';
+      }
+
+      function closeHelp() {
+        helpModal.style.display = 'none';
+      }
+
+      closeBtn.addEventListener('click', closeHelp);
+
+      // Close if clicking outside the modal box
+      helpModal.addEventListener('click', function (e) {
+        if (e.target === helpModal) {
+          closeHelp();
+        }
+      });
+
+      // 3. Optional: Open once on first visit
+      // (Uses browser localStorage so it only opens once per user device)
+      const HAS_SEEN_HELP = 'rotonhill_map_seen_help';
+
+      if (!localStorage.getItem(HAS_SEEN_HELP)) {
+        openHelp();
+        localStorage.setItem(HAS_SEEN_HELP, 'true');
+      }
+    }
+
     const map = L.map('map').setView([41.085, -73.432], 16);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -385,6 +545,7 @@
       setYear(selectedYear + 1);
     });
 
+    setUpTheHelpButton();
     refreshParcels();
 
     map.fitBounds(geojsonLayer.getBounds());

@@ -102,14 +102,14 @@ MERGES = [
             "YearBuilt": 1912,
             "valid_from": 1912,
             "valid_to": 1960,
-            "Location": "Traendly Farms",
+            "Location": "Traendly & Schenck Greenhouses",
             "Notes": f"""
-            Traendly was the largest supplier of flowers to New York City, all grown in 50
-            greenhouses on either side of Five Mile River in Norwalk and Darien. Traendly
-            operated from about 1912 or so until the late 1950s. When they shut down the
-            greenhouses they tried to sell this land to Sperry-Rand for a manufacturing
+            Traendly & Schenck were the largest supplier of flowers to New York City, all
+            grown in 50 greenhouses on either side of Five Mile River in Norwalk and Darien.
+            Traendly operated from about 1912 or so until the late 1950s. When they shut down
+            the greenhouses they tried to sell this land to Sperry-Rand for a manufacturing
             facility, but their bruising 3-year attempt to re-zone the area was ultimately
-            denied due to fierce opposition from the local community.<p>
+            overturned due to fierce opposition from the local community.<p>
             To be clear, these roads were not here when the greenhouses were operating.
             """
         }
