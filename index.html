@@ -111,6 +111,16 @@
       const isBuilt = (!isNaN(yearBuilt) && selectedYear >= yearBuilt);
 
       if (isBuilt) {
+        // Highlight newly-built properties
+        if ((selectedYear - yearBuilt) < 1) {
+          return {
+            fillOpacity: 0.50,
+            fillColor: 'slateblue',
+            opacity: 1,
+            color: 'green',
+            weight: 1,
+          };
+        }
         if (props.Notes) {
           return {
             fillOpacity: 0.50,

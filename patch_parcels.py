@@ -186,6 +186,19 @@ EDITS = {
         and John was also a gardener at Traendly's.
         """
     },
+    # 459 Flax Hill Rd
+    "5-72-3-0": {
+        "Notes": f"""
+        This was the old location of Brookside School, one of the oldest schools in Norwalk.
+        It is unclear when it opened, but in 1901 Samuel Richards Reed spoke about attending
+        the school back in 1847, so it was open by then, at least. The school was shut down in
+        1939, and its replacement opened on Highland Ave. in 1954.<p>
+        This property was later purchased by Harry J. Getner, the president of the
+        Connecticut Ice Machine Company, who had attended the school as a child. In the
+        1960s he remodeled the building, keeping its character but giving it a new life as a
+        residence.
+        """
+    }, 
     # 51 Rampart Rd
     "5-73A-14-0": {
         "Notes": f"""
@@ -257,6 +270,13 @@ EDITS = {
         Rd, just up the street.<p>
         Aaron and Hannah are buried in the tiny Hoyt-Bouton Cemetery on Witch Lane.
         """,
+    },
+    "5-73B-1A-0": {
+        "Notes": f"""
+        A Norwalk Historical Society plaque on this house says "Lewis Raymond Jr. House 1829".
+        Lewis Raymond Jr. was a brickmason, and this is accordingly a brick house. Lewis'
+        father lived nearby at 388 Flax Hill Rd, according to the plaque on that house.
+        """
     },
     # Rowayton Woods. This is the survivor of de-duplication, so we want it to represent
     # the whole development.
