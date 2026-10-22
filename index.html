@@ -93,46 +93,89 @@
     pointer-events: none; /* Let touches pass through the wrapper */
   }
 
+  /* Detach the timeline panel from Leaflet's corner container
+     and anchor it directly to the bottom of the visible screen */
   .timeline-panel {
-    pointer-events: auto; /* Re-enable touches on the actual controls */
-    width: 100%;
-    box-sizing: border-box;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
     margin: 0 !important;
-    border-radius: 12px 12px 0 0; /* Rounded top sheet */
-    padding: 16px 20px;
-    box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000 !important; /* Float cleanly above Leaflet tile layers */
+
+    border-radius: 14px 14px 0 0;
+    padding: 12px 16px;
+    /* Respect Android gesture nav / iPhone home bars */
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    
     background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
   }
 
+  /* Keep title compact to preserve vertical space */
   .timeline-panel h4 {
-    font-size: 16px;
-    margin-bottom: 12px;
+    font-size: 14px;
+    margin: 0 0 8px 0;
     text-align: center;
   }
 
-  /* Expand button size to meet touch-friendly minimums */
-  .step-btn {
-    width: 44px;
-    height: 44px;
-    font-size: 22px;
+  /* Make sure controls stay on one horizontal line */
+  .slider-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
   }
 
-  /* Increase year readout visibility */
+  .slider-container input[type="range"] {
+    flex: 1;
+    min-width: 0; /* Prevents slider from blowing out container width */
+    height: 24px;
+  }
+
+  /* Touch-friendly buttons that don't take up excessive vertical height */
+  .step-btn {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    font-size: 20px;
+  }
+
   .year-readout {
-    font-size: 18px;
-    min-width: 52px;
+    font-size: 16px;
+    min-width: 44px;
+    flex-shrink: 0;
     text-align: right;
   }
 
-  /* Make slider track thicker and easier to drag with a thumb */
-  .slider-container input[type="range"] {
-    height: 28px;
+  /* Subtitle text under slider */
+  .timeline-panel div[style*="font-size: 11px"] {
+    margin-top: 4px !important;
+    text-align: center;
+  }
+
+  /* Move Leaflet's default attribution / zoom controls out of the way */
+  .leaflet-bottom.leaflet-left,
+  .leaflet-bottom.leaflet-right {
+    margin-bottom: 90px !important; /* Shifts the OSM attribution above our bottom panel */
   }
 
   /* Reposition default Leaflet zoom controls (+ / -) out of the way */
   .leaflet-top.leaflet-left {
     top: 10px;
     left: 10px;
+  }
+
+  /* Constrain popup bubbles */
+  .leaflet-popup-content-wrapper {
+    font-size: 14px;
+    border-radius: 8px;
+  }
+  .leaflet-popup-content {
+    margin: 10px 14px;
+    line-height: 1.4;
   }
 }
   </style>
@@ -280,6 +323,7 @@
       // Prevent clicks and dragging on the controls from interacting with the map
       L.DomEvent.disableClickPropagation(container);
       L.DomEvent.disableScrollPropagation(container);
+      L.DomEvent.on(container, 'touchstart touchmove touchend', L.DomEvent.stopPropagation);
 
       container.innerHTML = `
     <h4>Filter by Year Built</h4>
