@@ -156,10 +156,17 @@
     text-align: center;
   }
 
-  /* Move Leaflet's default attribution / zoom controls out of the way */
-  .leaflet-bottom.leaflet-left,
+  /* Lift the attribution above the bottom panel */
   .leaflet-bottom.leaflet-right {
-    margin-bottom: 90px !important; /* Shifts the OSM attribution above our bottom panel */
+    bottom: 95px !important;
+    transition: bottom 0.2s ease;
+  }
+
+  /* Make attribution text slightly more compact on small screens */
+  .leaflet-control-attribution {
+    font-size: 9px !important;
+    background: rgba(255, 255, 255, 0.7) !important;
+    padding: 0 4px !important;
   }
 
   /* Reposition default Leaflet zoom controls (+ / -) out of the way */
