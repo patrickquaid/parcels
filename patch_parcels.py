@@ -1,10 +1,41 @@
 import json
 import sys
 
+# Additional whole features.
+ADDED_FEATURES = [{
+    "type":"Feature",
+    "properties": {
+        "ParcelID":"OriginalReynoldsFarm",
+        "YearBuilt": 1922,
+        "valid_from": 1922,
+        "valid_to": 1957,
+        "Location":"Original Reynolds Farms and Distillery",
+        "Notes": f"""
+        This was approximately the original site of the Reynolds Farms Nursery. The
+        Reynolds family also operated a cider mill and distillery here. After the repeal
+        of the 18th Amendment, Reynolds was the first <i>legal</i> distillery in Norwalk,
+        producing 600 cases weekly.<p>
+        When I-95 came through in the late 1950s Stephen Reynolds retired and the business
+        was purchased by
+        <a href="https://www.reynoldsfarms.net/our-story">a former employee who moved it
+        to the present location on Richards Ave</a>.
+        """,
+    },
+    "geometry":{
+        "type":"Polygon",
+        "coordinates":[[
+            [-73.4359055, 41.1018789],
+            [-73.43602,   41.100774],
+            [-73.4345823, 41.1009411],
+            [-73.4345108, 41.1019328],
+            [-73.4359055, 41.1018789]]]
+    }
+}]
+
 # Property key used to identify each feature
 ID_FIELD = "ParcelID"
 
-# Define manual overrides keyed by parcel identifier
+# Define manual overrides of feature.properties, keyed by ParcelID
 EDITS = {
     # 4 Westview
     "5-73B-18-0": {
@@ -98,8 +129,8 @@ EDITS = {
     },
     # 341 Flax Hill Rd
     "5-73B-22-0": {
-        "YearBuilt": 1760,
-        "valid_from": 1760,
+        "YearBuilt": 1780,
+        "valid_from": 1780,
         "Notes": f"""
         This was the homestead of Sally Ann Keeler, who inherited much of the land
         around here when her father David Lockwood died in 1835. The original house
@@ -280,6 +311,16 @@ EDITS = {
         lived nearby at 388 Flax Hill Rd, according to the plaque on that house.
         """
     },
+    # 23 Richards Ave
+    "5-71-14-0": {
+        "YearBuilt": 1957,
+        "valid_from": 1957,
+        "Notes": f"""
+        This is <a href="https://www.reynoldsfarms.net/">Reynolds Farms Nursery</a>. Reynolds
+        Farms was originally on Scribner, and was consumed by the construction of I-95. The
+        business was taken over by an employee and moved to the present location.
+        """,
+    },
     # Rowayton Woods. This is the survivor of de-duplication, so we want it to represent
     # the whole development.
     "5-80-200-1/01": {
@@ -305,6 +346,9 @@ def main():
         sys.exit(1)
 
     features = data.get("features", [])
+    # Explicitly add some features
+    features.extend(ADDED_FEATURES)
+
     patched_count = 0
 
     for feat in features:
@@ -325,6 +369,7 @@ def main():
 
             patched_count += 1
 
+    sys.stderr.write(f"Added {len(ADDED_FEATURES)} features\n")
     sys.stderr.write(f"Patched {patched_count} features out of {len(features)} total.\n")
 
     # Stream out 1 feature per line

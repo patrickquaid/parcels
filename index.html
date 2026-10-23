@@ -166,16 +166,6 @@
        Mobile Overrides (screens 600px wide or narrower)
        ========================================================= */
 @media (max-width: 600px) {
-  /* Pin the panel across the bottom edge of the screen */
-  .leaflet-top.leaflet-right {
-    width: 100%;
-    top: auto;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    pointer-events: none; /* Let touches pass through the wrapper */
-  }
-
   /* Detach the timeline panel from Leaflet's corner container
      and anchor it directly to the bottom of the visible screen */
   .timeline-panel {
@@ -239,17 +229,12 @@
     text-align: center;
   }
 
-  /* Lift the attribution above the bottom panel */
-  .leaflet-bottom.leaflet-right {
-    bottom: 95px !important;
-    transition: bottom 0.2s ease;
-  }
-
   /* Make attribution text slightly more compact on small screens */
   .leaflet-control-attribution {
     font-size: 9px !important;
     background: rgba(255, 255, 255, 0.7) !important;
     padding: 0 4px !important;
+    margin-bottom: 120px !important;
   }
 
   /* Reposition default Leaflet zoom controls (+ / -) out of the way */
@@ -279,14 +264,13 @@
     <div class="modal-card">
       <h3>About This Map</h3>
       <p>
-        This interactive map shows the development of Roton Hill, an arbitrary
-        area in South Norwalk. It's based on public parcel maps, with some edits
-        and historical notes added.
+        This interactive map shows the evolution of Roton Hill, an arbitrary
+        portion of South Norwalk. It's based primarily on public parcel maps, with
+        some historical tidbits added.
       </p><p>
-        The map is based on current data, so if a building's been replaced, it
-        generally only knows about the new one. Also the underlying map, including the
-        building outlines, is just the current map -- the slider has no affect on
-        it.
+        The map is based on current data, so if a building has been replaced it
+        generally only knows about the newest one. Also the underlying map, including
+        the building outlines, is just the current one. The slider has no effect on it.
       </p><p>
         If you see anything that ought to be changed, including especially any
         trivia or fun facts I should add, please let me know at rotonhill@rotonhill.com.
@@ -295,8 +279,8 @@
       <ul>
         <li><strong>Timeline Slider:</strong> Drag the year slider or use <strong>&minus;</strong> /
           <strong>&plus;</strong> to step through time.</li>
-        <li><strong>Parcels:</strong> Lots only appear once built or established, and split as
-          historical subdivisions (or at least those that I know about) occur.</li>
+        <li><strong>Parcels:</strong> Lots appear only after they're established. In some
+          cases I'm aware of of a subdivision, so I show that as well.</li>
         <li><strong>Details:</strong> Click on any parcel to see a little more information.
           If a parcel has a thicker outline, there is some historical trivia available.
           </li>

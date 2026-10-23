@@ -31,12 +31,15 @@ REGION_WKT = """POLYGON ((
 -73.4342429 41.0988918, -73.4346649 41.1003578 ))
 """
 
+total_invalid_geometry = 0
 def parcel_in_bounds(feature, region):
     geometry = feature.get("geometry")
     if not geometry or "coordinates" not in geometry:
         return False
     parcel_shape = shape(geometry)
     if not parcel_shape.is_valid:
+        global total_invalid_geometry
+        total_invalid_geometry += 1
         return False
     if region.intersects(parcel_shape):
         return True
@@ -144,6 +147,7 @@ def main():
 
     # Geographic crop
     in_bounds_features = [f for f in features if parcel_in_bounds(f, region)]
+    sys.stderr.write(f"Total features with invalid geometry: {total_invalid_geometry}\n")
     sys.stderr.write(f"Features within bounds: {len(in_bounds_features)}\n")
     
     # Keep only the properties you actually use in the map
@@ -172,8 +176,6 @@ def main():
         else:
             sys.stdout.write(f"  {line}\n")
     sys.stdout.write(']\n}\n')
-
-    sys.stderr.write("Finished successfully.\n")
 
 if __name__ == "__main__":
     main()
