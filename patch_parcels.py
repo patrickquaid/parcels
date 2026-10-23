@@ -37,6 +37,14 @@ ID_FIELD = "ParcelID"
 
 # Define manual overrides of feature.properties, keyed by ParcelID
 EDITS = {
+    # 2 Westview
+    "5-73B-19-0": {
+        "Notes": f"""
+        This house originally faced the opposite direction, and opened onto Flax
+        Hill Road. In older directories the address of this house was 385 Flax Hill,
+        and then 353 Flax Hill after the numbering was revised in about 1950.
+        """
+    },
     # 4 Westview
     "5-73B-18-0": {
         "YearBuilt": 1931,
@@ -134,17 +142,19 @@ EDITS = {
         "Notes": f"""
         This was the homestead of Sally Ann Keeler, who inherited much of the land
         around here when her father David Lockwood died in 1835. The original house
-        burned down in 1912, and was replaced that year by William G Shaw. There's
-        much more detail about all this in 
-        <a href="https://www.rotonhill.com/the-keeler-property">The Keeler Property</a>.
+        was described as a 12-room, two story house, with an attic. Of course that
+        means 12 rooms in total, not just bedrooms. That house burned to the ground
+        in 1912, and was replaced that year by William G Shaw. There's much more
+        detail about all this in <a href="https://www.rotonhill.com/the-keeler-property">
+        The Keeler Property</a>.
         """
     },
     # 343 Flax Hill Rd
     "5-73B-21-0": {
         "Notes": f"""
-        The home currently at 3 Rochelle originally faced Flax Hill, and the lot that
-        is now 343 Flax Hill was its circular driveway. When the lot was split in 1979
-        the house was reversed to face Rochelle.<p>
+        The home currently at 3 Rochelle originally faced Flax Hill. The lot that
+        is now 343 Flax Hill was its front yard, with a large circular driveway. When
+        the lot was split in 1979 the house was reversed to face Rochelle.<p>
         From about 1936 until his death in 1954, this was the home of
         <a href="https://en.wikipedia.org/wiki/C._E._Hooper">Claude E. Hooper</a>, who
         measured radio audience sizes, much like Nielsen later did for television. In
@@ -202,6 +212,12 @@ EDITS = {
         This house has a Norwalk Historical Society plaque that reads "Lewis Raymond Sr House c. 1810".
         This house is wood framed, but Lewis Raymond Jr was a brickmason, so his nearby house at
         26 Keeler is made of brick.<p>
+        In the 1910s this was the home of artist and architect Harry Stacey Benton (1877-1947) and
+        his then-wife Elsie N. Benton (1878-1953). Elsie ran a Norwalk interior design firm called
+        Yonder Studio. They later moved around the corner to 377 Highland, but they
+        also owned much of the land behind these houses, land that is today Topping Lane. Their
+        son Burt Benton lived at 5 Topping Lane.
+        <p>
         In the 1930s this was the home of Douglas Pairman Hall, a well-known architect specializing
         in theaters, and his wife Aimee Green Hall.
         """
